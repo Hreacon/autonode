@@ -1,5 +1,5 @@
 {
-  "name": "simon",
+  "name": "autonode project",
   "version": "1.0.0",
   "description": "========= # insertApplicationName HAL2000",
   "main": "index.js",
@@ -9,10 +9,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular2": "2.0.0-beta.11",
+    "systemjs": "0.19.24",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.6.4",
     "moment": "^2.12.0",
     "prompt": "^1.0.0"
   },
   "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.1.0",
+    "typescript": "^1.8.9",
+    "typings":"^0.7.9",
     "bower-files": "^3.11.3",
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
@@ -31,3 +42,7 @@
     "vinyl-source-stream": "^1.1.0"
   }
 }
+// things to npm install -g
+// gulp
+// browserify
+// typescript
