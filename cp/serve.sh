@@ -8,6 +8,7 @@ if [ ! -d ~/.atom/packages/minimap ]; then
   apm install linter linter-csslint linter-jshint
   apm install file-icons
   apm install atom-beautify
+  apm install atom-typescript
   # apm install color-picker
   # apm install merge-conflicts
 fi
