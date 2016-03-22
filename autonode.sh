@@ -15,13 +15,9 @@ read project
 
 if [ ! -d "$project" ]; then # if the directory does not exist
   mkdir ../"$project"
-  mkdir ../"$project"/js ../"$project"/scss ../"$project"/atomconfigfile
-  cp -r cp/js/. ../"$project"/js/
-  touch ../"$project"/js/"$project".js
-  cp -r cp/scss/. ../"$project"/scss/
   cp -r cp/. ../"$project"/
+  touch ../"$project"/app/"$project".ts
   cp -r cp/atom/config.cson ~/.atom/
-  cp -r cp/atom/config.cson ../"$project"/atomconfigfile/
   echo "Directory created and files added"
 else
   echo "Directory already exists"
