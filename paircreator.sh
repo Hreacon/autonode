@@ -43,8 +43,9 @@ clear
 FILE=~/.pairs
 if [ -f "$FILE" ]
 then
-  echo File exists. Overwrite? y/n [case sensitive]
+  echo File exists. Overwrite? y/n [lowercase answer, default NO ]
   read answer
+  answer=${answer:-n}
   if [[ "$answer" == y* ]]
     then collectInput
     writeFile

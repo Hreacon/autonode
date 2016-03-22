@@ -1,4 +1,3 @@
-
 if [ ! -d ~/.atom/packages/minimap ]; then
   echo "Setting up atom"
   cp -r ./atomconfigfile/config.cson ~/.atom/
@@ -15,10 +14,18 @@ fi
 
 echo "Opening directory in atom"
 atom .
-
+if [ $# -eq 0 ]; then
+  echo Are you working alone? [y/N]
+  read alone
+  alone=${alone:-n}
+else alone = $1
+fi
 if [ ! -d "./node_modules" ]; then
   npm install
-  sed -i 'bak' 's/git commit/git pair-commit/g' ./node_modules/gulp-git/lib/commit.js
+  if [[ $alone == n* ]];
+  then
+    sed -i 'bak' 's/git commit/git pair-commit/g' ./node_modules/gulp-git/lib/commit.js
+  fi
 fi
 
 if [ ! -d "bower_componenets" ]; then

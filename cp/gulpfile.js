@@ -33,9 +33,9 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 // Depreciated?
-var browserify = require('browserify');
-var source =require('vinyl-source-stream');
-var jshint = require('gulp-jshint');
+// var browserify = require('browserify');
+// var source =require('vinyl-source-stream');
+// var jshint = require('gulp-jshint');
 
 // used for git status, git add and git commit
 var git = require('gulp-git');
@@ -51,7 +51,7 @@ gulp.task('tsClean', function() {
 });
 
 // clean then compile once. To be called from server and global build
-gulp.task('ts', ['tsClean'], shell.task(['tsc --out build/js/app.js app/*.ts']));
+gulp.task('ts', ['tsClean'], shell.task(['tsc']));
 
 // End TypeScript Section
 // Start Bower Section
@@ -118,7 +118,6 @@ gulp.task('jsBuild', function() {
 });
 
 gulp.task('tsBuild', ['ts'], function() {
-  gulp.start('ts');
   browserSync.reload();
 });
 
@@ -144,7 +143,7 @@ gulp.task("build", function(){
   } */
   gulp.start('ts');
   gulp.start('bower');
-  gulp.start('scssBuild')
+  gulp.start('scssBuild');
 });
 
 // end Global Build Task

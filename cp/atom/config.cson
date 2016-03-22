@@ -6,3 +6,6 @@
     invisibles: {}
     showIndentGuide: true
     softWrap: true
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
