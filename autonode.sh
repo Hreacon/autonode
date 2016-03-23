@@ -9,6 +9,10 @@
 # ask to run pairs command to set authors
 # create initial commit with blank files
 
+# Variables for name to be used
+name="Nicholas Jensen-Hay"
+email="NicholasJensenHay@gmail.com"
+
 echo Are you working alone? [y/N]
 read alone
 alone=${alone:-n}
@@ -34,9 +38,11 @@ if [ ! -d "$project" ]; then # if the directory does not exist
   INITIAL_COMMIT_MESSAGE="Initial Commit"
 
   cd ../"$project"
-
-  echo "Enter pairs intials"
-  read pairinitial
+  if [[ "$alone" == n* ]];
+  then
+    echo "Enter pairs intials"
+    read pairinitial
+  fi
 
   if [ -d ".git" ]; then
     echo "Git already init"
@@ -45,7 +51,13 @@ if [ ! -d "$project" ]; then # if the directory does not exist
     if (( $? )); then
       echo "Unable to git init"
     fi
-    git pair njh "$pairinitial"
+    if [[ "$alone" == n* ]];
+    then
+      git pair njh "$pairinitial"
+    else
+      git config user.name "$name"
+      git config user.email "$email"
+    fi
     if (( $? )); then
       echo "Unable to set authors"
     fi
@@ -53,13 +65,17 @@ if [ ! -d "$project" ]; then # if the directory does not exist
     if (( $? )); then
       echo "Unable to git add"
     fi
-    git pair-commit -m "$INITIAL_COMMIT_MESSAGE"
+    if [[ "$alone" == n* ]];
+    then
+      git pair-commit -m "$INITIAL_COMMIT_MESSAGE"
+    else git commit -m "$INITIAL_COMMIT_MESSAGE"
+    fi
     if (( $? )); then
       echo "Unable to git commit"
     fi
     echo "The directory was initialized"
   fi
-
+  chmod 777 ./serve.sh
   ./serve.sh $alone
 else
   echo "Directory already exists, no action taken."

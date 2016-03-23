@@ -18,7 +18,7 @@ if [ $# -eq 0 ]; then
   echo Are you working alone? [y/N]
   read alone
   alone=${alone:-n}
-else alone = $1
+else alone=$1
 fi
 if [ ! -d "./node_modules" ]; then
   npm install
