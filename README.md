@@ -1,17 +1,18 @@
 # Auto Node
-## Version 1.2.3
+## Version 1.2.4
 
 A bash script that creates the directory structure, and copies the required files for node, bower, and gulp for serving and building js node projects. It installs node and bower. Adds git commands to gulp, shows gulp status. Makes the gulp serve not crash on bad js loads. Configures atom and installs some cool packages. Provides a shell script with every project so when you clone it from github restarting is easy.
 It also includes a script to create the pairs file for Epicodus students, which Automatically runs at the beginning of autonode.
 
 ### Update Log
+3/23/2016 - 1.2.4 : Downgraded autonode to fix browserSync connection to browser and remove console errors.
 3/23/2016 - 1.2.3 : Fixed self option in the autonode script. Added a missing dependency package, gulp-shell.
 3/22/2016 - 1.2.2 : Updated file structure, gulpfile, package.json, index.html. Added typescript and angular2. Gulp Serve handles compiling typescript. This introduced a bug where browserSync does not connect, and therefore does not refresh.
 1.1.2 : Removed linter-scss-lint from Atom packages because it threw errors.
 
 ### Known issues
 
-1.2.2 - browserSync doesn't connect to the browser. This is usually caused by missing body tags, but that case doesn't apply.
+FIXED : 1.2.2 - browserSync doesn't connect to the browser. This is usually caused by missing body tags, but that case doesn't apply.
 
 ### How to use
 
