@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -d ~/.atom/packages/minimap ]; then
   echo "Setting up atom"
   cp -r ./atomconfigfile/config.cson ~/.atom/
@@ -8,6 +10,7 @@ if [ ! -d ~/.atom/packages/minimap ]; then
   apm install file-icons
   apm install atom-beautify
   apm install atom-typescript
+  apm install multi-cursor
   # apm install color-picker
   # apm install merge-conflicts
 fi
